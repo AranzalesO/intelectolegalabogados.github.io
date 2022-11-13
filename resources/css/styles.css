@@ -16,8 +16,7 @@ html {
     background-color: #b4974a;
     border: #b4974a 1px solid;
     color: #fff;
-    padding: 10px 50px;
-    margin-right: 1rem;
+    padding: 10px 30px;
     font-family: 'Playfair Display', 'Roboto Slab';
 }
 
@@ -89,8 +88,8 @@ h2 {
     font-family: 'Playfair Display';
     overflow: hidden;
     border-right: .15em solid orange;
-    white-space: nowrap;
-    width: 0;
+    white-space: wrap;
+    margin: 0.5rem 0;
     animation: typing 2s forwards;
 }
 
@@ -108,18 +107,25 @@ h2 {
     font-size: 1.2rem;
 }
 
-.grid-container {
-    display: grid;
-    grid-template: repeat(3, 1fr) / 1fr repeat(3, 2fr);
-    width: 1200px;
+.hero .flex-hero {
+    display: flex;
+    width: 100%;
+    padding: 0 5rem;
+    flex-flow: row wrap;
 }
 
-.grid-container .text {
-    grid-area: 1 / 2 / span 1 / span 3;
+.hero .flex-hero .text {
+    width: 100%;
 }
 
-.grid-container .buttons {
-    grid-area: 3 / 2 / span 1 / span 2;
+.hero .flex-hero .buttons {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+    position: relative;
+    width: 100%;
+    top: 40%;
+    margin-top: 2rem;
 }
 
 
@@ -151,7 +157,6 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    /* border-bottom: 2px solid #b4974a; */
     color: #b4974a;
 }
 
@@ -169,12 +174,11 @@ nav .logo {
 .flex-container {
     margin: 5rem auto;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
+    width: 100%;
+    padding: 0 30px;
     font-family: 'Roboto Slab', 'Playfair Display';
-}
-
-.flex-container .text-box {
-    margin-right: 7rem;
 }
 
 .flex-container .text-box span {
@@ -190,8 +194,14 @@ nav .logo {
 }
 
 .flex-container .img-box img {
-    width: 25rem;
+    width: 20rem;
     box-shadow: 10px 15px 5px teal;
+}
+
+.flex-container .img-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 
@@ -215,7 +225,7 @@ nav .logo {
     justify-content: space-between;
     align-content: space-around;
     flex-flow: row wrap;
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
@@ -296,7 +306,7 @@ nav .logo {
 }
 
 
-/* Valores */
+/* Values */
 
 #valores {
     padding: 12rem 0;
@@ -348,66 +358,151 @@ nav .logo {
 /* Media Queries */
 
 
-/* Desktop */
+/* Mobile */
 
-@media (min-width: 1600px) {
+@media (min-width: 320px) and (max-width: 766px) {
+    /* Hero section */
+    .hero {
+        height: 45rem;
+    }
+    .hero h1 {
+        font-size: 2.3rem;
+        margin: 1rem 0;
+    }
+    .hero .flex-hero .text span {
+        font-size: 1rem;
+    }
+    /* Menu */
+    /* About Us */
+    .flex-container {
+        flex-flow: column;
+        justify-content: center;
+    }
+    .flex-container .img-box {
+        margin-top: 5rem;
+    }
+    .flex-container .parallel-box {
+        width: 100%;
+    }
+    /* Services */
+    .services-flex .cards {
+        justify-content: center;
+    }
+    .services-flex .cards .card {
+        height: 26rem;
+    }
+    /* Banner */
+    /* Values */
+    /* Clients */
+}
+
+
+/* Tablet */
+
+@media (min-width: 767px) and (max-width: 1023px) {
+    /* Hero section */
     .hero {
         height: 62rem;
     }
-    .flex-container {
-        width: 60rem;
+    .hero h1 {
+        font-size: 2.3rem;
     }
+    /* Menu */
+    /* About Us */
+    .flex-container {
+        flex-flow: column;
+        justify-content: center;
+    }
+    .flex-container .img-box {
+        margin-top: 5rem;
+    }
+    .flex-container .parallel-box {
+        width: 100%;
+    }
+    /* Services */
+    .services-flex .cards {
+        justify-content: center;
+    }
+    .services-flex .cards .card {
+        height: 20rem;
+    }
+    /* Banner */
+    /* Values */
+    /* Clients */
 }
 
 
 /* Laptop */
 
 @media (min-width: 1024px) and (max-width: 1599px) {
+    /* Hero section */
     .hero {
         height: 54rem;
     }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    /* Menu */
+    /* About Us */
     .flex-container {
         width: 60rem;
-    }
-}
-
-
-/* Tablet */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .hero {
-        height: 85rem;
-    }
-    .hero h1 {
-        font-size: 2.3rem;
-    }
-    .flex-container {
-        flex-flow: column;
-        width: 40rem;
-    }
-    .flex-container .img-box {
-        margin-top: 5rem;
-    }
-}
-
-
-/* Mobile */
-
-@media (min-width: 380px) and (max-width: 767px) {
-    .hero {
-        height: 85rem;
-    }
-    .hero h1 {
-        font-size: 2.3rem;
-    }
-    .flex-container {
-        flex-flow: column;
-        width: 40rem;
-    }
-    .flex-container .img-box {
-        margin-top: 5rem;
+        flex-flow: row;
     }
     .flex-container .text-box {
-        margin-right: 0px;
+        margin-right: 7rem;
+    }
+    .flex-container .parallel-box {
+        width: 50%;
+    }
+    /* Services */
+    .services-flex .cards .card {
+        height: 20rem;
+    }
+    .services-flex .cards {
+        justify-content: space-between;
+    }
+    /* Banner */
+    /* Values */
+    /* Clients */
+}
+
+
+/* Desktop */
+
+@media (min-width: 1600px) {
+    /* Hero section */
+    .hero {
+        height: 62rem;
+    }
+    /* Menu */
+    /* About Us */
+    .flex-container {
+        width: 80%;
+        flex-flow: row;
+    }
+    .flex-container .parallel-box {
+        width: 50%;
+    }
+    /* Services */
+    .services-flex .cards .card {
+        height: 20rem;
+    }
+    .services-flex .cards {
+        justify-content: space-between;
+    }
+    /* Banner */
+    /* Values */
+    /* Clients */
+}
+
+@media (min-height: 1000px) {
+    .hero {
+        height: 73rem;
+    }
+}
+
+@media (min-height: 1100px) {
+    .hero {
+        height: 72rem;
     }
 }
