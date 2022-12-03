@@ -5,6 +5,9 @@
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    --hue: 200;
+    --saturation: 100%;
+    --lightness: 100%;
 }
 
 html {
@@ -65,7 +68,6 @@ html {
 h2 {
     font-size: 2.5rem;
     font-family: 'Playfair Display', 'Roboto Slab';
-    margin-bottom: 2rem;
 }
 
 
@@ -73,7 +75,7 @@ h2 {
 
 .hero {
     height: 62rem;
-    background-image: url('https://images.pexels.com/photos/1296000/pexels-photo-1296000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-image: url('../images/bg-hero.png');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -118,6 +120,10 @@ h2 {
     width: 100%;
 }
 
+.hero .flex-hero .text span:first-child {
+    color: #b4974a;
+}
+
 .hero .flex-hero .buttons {
     display: flex;
     flex-flow: row wrap;
@@ -145,6 +151,12 @@ nav {
     z-index: 999;
 }
 
+nav ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
 nav ul li {
     display: inline-block;
     margin-right: 15px;
@@ -161,11 +173,48 @@ nav ul li a:hover {
 }
 
 nav .logo {
-    background-image: url('../images/logo_dorado_row.png');
+    background-image: url('../images/logo-dorado-column.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 200px;
+    width: 133px;
     height: 42px;
+}
+
+nav .hamb-icon {
+    cursor: pointer;
+    position: absolute;
+    margin-left: 70%;
+}
+
+nav .hamb-line {
+    background: #000;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+nav .hamb-line::before,
+nav .hamb-line::after {
+    background: #000;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+nav .hamb-line::before {
+    top: 5px;
+}
+
+nav .hamb-line::after {
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
 }
 
 
@@ -176,6 +225,7 @@ nav .logo {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    text-align: center;
     width: 100%;
     padding: 0 30px;
     font-family: 'Roboto Slab', 'Playfair Display';
@@ -184,6 +234,16 @@ nav .logo {
 .flex-container .text-box span {
     color: #b4974a;
     font-size: 0.8rem;
+    display: block;
+}
+
+.flex-container .text-box h2 {
+    margin-bottom: 1.2rem;
+}
+
+.flex-container .text-box span.cities {
+    margin: 0.6rem 0 1.2rem;
+    color: #52555e;
 }
 
 .flex-container .text-box p {
@@ -232,6 +292,7 @@ nav .logo {
 .services-flex .cards .card {
     display: inline-flex;
     justify-content: center;
+    align-content: center;
     flex-flow: column wrap;
     width: 20rem;
     height: 20rem;
@@ -277,11 +338,17 @@ nav .logo {
     flex-flow: column wrap;
     text-align: center;
     opacity: 0.8;
+    background-color: hsl(201, 97%, 13%);
+    z-index: 0;
     background-image: url('https://intelectolegalabogados.co/wp-content/uploads/2022/05/poster-en-redes-scaled.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: black;
+}
+
+.banner-ad::after {
+    content: '';
+    background-color: hsl(201, 97%, 13%);
 }
 
 .banner-ad .text-question .icon-banner {
@@ -291,14 +358,25 @@ nav .logo {
 
 .banner-ad .text-question .description {
     text-transform: uppercase;
-    color: #b4974a;
+    color: #fff;
+    background-color: #b4974a;
     font-family: 'Playfair Display', 'Roboto Slab';
     font-size: 0.8rem;
+    border: 1px solid #b4974a;
 }
 
 .banner-ad .text-offer {
     font-family: 'Roboto Slab', 'Playfair Display';
     line-height: 1.8;
+}
+
+.banner-ad .text-offer .due-dilligence {
+    color: hsl(var(--hue)), var(--saturation), var(--lightness);
+}
+
+.banner-ad .text-offer .due-dilligence:hover {
+    color: #b4974a;
+    transition: all ease-in-out 0.6s;
 }
 
 .banner-ad .conditions {
@@ -366,13 +444,16 @@ nav .logo {
         height: 45rem;
     }
     .hero h1 {
-        font-size: 2.3rem;
+        font-size: 1.7rem;
         margin: 1rem 0;
     }
     .hero .flex-hero .text span {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     /* Menu */
+    nav .logo {
+        margin-left: 1rem;
+    }
     /* About Us */
     .flex-container {
         flex-flow: column;
@@ -408,6 +489,9 @@ nav .logo {
         font-size: 2.3rem;
     }
     /* Menu */
+    nav .logo {
+        margin-left: 4rem;
+    }
     /* About Us */
     .flex-container {
         flex-flow: column;
@@ -437,7 +521,7 @@ nav .logo {
 @media (min-width: 1024px) and (max-width: 1599px) {
     /* Hero section */
     .hero {
-        height: 54rem;
+        height: 50rem;
     }
     .hero h1 {
         font-size: 2.2rem;
