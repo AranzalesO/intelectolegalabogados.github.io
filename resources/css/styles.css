@@ -410,6 +410,11 @@ nav .logo {
 .map {
     width: 100%;
     height: 100%;
+    margin-bottom: 0;
+}
+
+.contact-us .map {
+    margin-bottom: -4px;
 }
 
 
