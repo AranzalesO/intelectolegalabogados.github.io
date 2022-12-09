@@ -68,6 +68,7 @@ html {
 h2 {
     font-size: 2.5rem;
     font-family: 'Playfair Display', 'Roboto Slab';
+    margin-bottom: 2rem;
 }
 
 
@@ -137,84 +138,50 @@ h2 {
 
 /* Menu */
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    box-shadow: 2px 2px 2px 1px rgba(80, 80, 82, 0.2);
-    padding: 10px 0;
-    position: sticky;
-    top: 0px;
-    background-color: white;
-    width: 100%;
-    z-index: 999;
-}
-
-nav ul {
+.topnav {
     overflow: hidden;
-    max-height: 0;
-    transition: max-height .5s ease-out;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    box-shadow: 2px 2px 2px 1px rgba(80, 80, 82, 0.2);
+    background-color: white;
+    z-index: 999;
+    align-items: center;
+    width: 100%;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-nav ul li a {
+.topnav a {
+    float: right;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    color: black;
+    font-size: 17px;
     transition: all 0.15s ease-in;
+    font-family: 'Karla', 'Roboto Slab', 'Playfair Display';
+    align-content: center;
+    height: 100%;
 }
 
-nav ul li a:hover {
+.topnav a:hover {
     color: #b4974a;
+}
+
+.topnav a.active {
+    float: left;
+}
+
+.topnav .icon {
+    display: none;
 }
 
 nav .logo {
     background-image: url('../images/logo-dorado-column.png');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 133px;
-    height: 42px;
-}
-
-nav .hamb-icon {
-    cursor: pointer;
-    position: absolute;
-    margin-left: 70%;
-}
-
-nav .hamb-line {
-    background: #000;
-    display: block;
-    height: 2px;
-    position: relative;
-    width: 24px;
-}
-
-nav .hamb-line::before,
-nav .hamb-line::after {
-    background: #000;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-
-nav .hamb-line::before {
-    top: 5px;
-}
-
-nav .hamb-line::after {
-    top: -5px;
-}
-
-.side-menu {
-    display: none;
+    width: 113px;
+    height: 35px;
 }
 
 
@@ -428,8 +395,103 @@ nav .hamb-line::after {
 
 #clients .services-flex .cards .card:hover {
     box-shadow: 1px 1px 3px 4px #b4974a;
-    /* transition: 0.5s ease-out;
-    cursor: pointer; */
+}
+
+
+/* Contact Us */
+
+.contact-us {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 0;
+}
+
+.contact-us .form,
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Footer Menu */
+
+.footer-menu {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    height: 400px;
+    background-color: rgb(2, 9, 25);
+}
+
+.footer-menu .legal {
+    width: 70%;
+    font-family: 'Karla', 'Roboto Slab', 'Playfair Display';
+    justify-content: center;
+}
+
+.footer-menu .legal ul {
+    list-style: none;
+}
+
+.footer-menu .mid-menu {
+    margin-bottom: 3rem;
+}
+
+.footer-menu .low-menu {
+    margin-bottom: 6rem;
+}
+
+.footer-menu .legal .mid-list,
+.low-list,
+.social {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.footer-menu .legal .low-list {
+    justify-content: space-between;
+}
+
+.footer-menu .legal .social-networks {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-menu .social-networks .social {
+    width: 30%;
+    font-size: 1.3rem;
+    transition: all 0.7s ease-in-out;
+}
+
+.footer-menu .social-networks .social a:hover {
+    text-shadow: 5px 5px #b4974a;
+}
+
+.footer-menu .legal ul a {
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+    color: rgb(255, 255, 255)
+}
+
+.footer-menu .legal ul a:hover {
+    color: #b4974a;
+}
+
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    font-family: 'Karla', 'Roboto Slab', 'Playfair Display';
+    background-color: #000;
+    color: #fff;
+    text-align: center;
 }
 
 
@@ -451,8 +513,27 @@ nav .hamb-line::after {
         font-size: 0.8rem;
     }
     /* Menu */
-    nav .logo {
-        margin-left: 1rem;
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+        color: #000;
+    }
+    .topnav.responsive {
+        position: sticky;
+        top: 0;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
     }
     /* About Us */
     .flex-container {
@@ -475,6 +556,11 @@ nav .hamb-line::after {
     /* Banner */
     /* Values */
     /* Clients */
+    /* Contact Us */
+    .contact-us .form,
+    .map {
+        width: 100%;
+    }
 }
 
 
@@ -489,8 +575,27 @@ nav .hamb-line::after {
         font-size: 2.3rem;
     }
     /* Menu */
-    nav .logo {
-        margin-left: 4rem;
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+        color: #000;
+    }
+    .topnav.responsive {
+        position: sticky;
+        top: 0;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
     }
     /* About Us */
     .flex-container {
