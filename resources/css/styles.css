@@ -21,6 +21,7 @@ html {
     color: #fff;
     padding: 10px 30px;
     font-family: 'Playfair Display', 'Roboto Slab';
+    border-radius: 2%;
 }
 
 .btn-primary:hover {
@@ -40,6 +41,7 @@ html {
     color: #b4974a;
     padding: 10px 30px;
     font-family: 'Playfair Display', 'Roboto Slab';
+    border-radius: 3%;
 }
 
 .btn-secondary:hover {
@@ -146,7 +148,6 @@ h2 {
     box-shadow: 2px 2px 2px 1px rgba(80, 80, 82, 0.2);
     background-color: white;
     z-index: 999;
-    align-items: center;
     width: 100%;
 }
 
@@ -161,7 +162,6 @@ h2 {
     transition: all 0.15s ease-in;
     font-family: 'Karla', 'Roboto Slab', 'Playfair Display';
     align-content: center;
-    height: 100%;
 }
 
 .topnav a:hover {
@@ -182,6 +182,39 @@ nav .logo {
     background-repeat: no-repeat;
     width: 113px;
     height: 35px;
+}
+
+
+/* Static Buttons */
+
+.static-buttons {
+    height: 110px;
+    width: 50px;
+    position: sticky;
+    top: 40rem;
+    left: 94%;
+    z-index: 9999999;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+}
+
+.static-buttons .email,
+.whatsapp {
+    width: 50px;
+    height: 50px;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.static-buttons .email {
+    background-image: url('http://store-images.s-microsoft.com/image/apps.28408.14294378363439842.a4f7f182-08a2-4051-bb19-6d5606b8e91c.4b03194d-8ce8-4804-908f-f10edde50d30');
+    background-size: cover;
+}
+
+.static-buttons .whatsapp {
+    background-image: url('https://pbs.twimg.com/profile_images/1318652224638124032/wrpp2Nl4_400x400.png');
+    background-size: cover;
 }
 
 
@@ -266,6 +299,7 @@ nav .logo {
     background-color: #fff;
     padding: 0 1.5rem;
     margin-bottom: 1rem;
+    border-radius: 5%;
 }
 
 .services-flex .cards .card:hover {
@@ -330,6 +364,9 @@ nav .logo {
     font-family: 'Playfair Display', 'Roboto Slab';
     font-size: 0.8rem;
     border: 1px solid #b4974a;
+    padding: 3px 5px;
+    border-radius: 3%;
+    letter-spacing: 1px;
 }
 
 .banner-ad .text-offer {
@@ -355,7 +392,7 @@ nav .logo {
 
 #valores {
     padding: 12rem 0;
-    background-image: url('https://images.pexels.com/photos/2792141/pexels-photo-2792141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://images.pexels.com/photos/316466/pexels-photo-316466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -365,9 +402,7 @@ nav .logo {
 
 #clients {
     padding: 10rem 0;
-    background-image: url('https://images.pexels.com/photos/1291515/pexels-photo-1291515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: rgb(2, 9, 25);
     color: #fff;
 }
 
@@ -395,6 +430,68 @@ nav .logo {
 
 #clients .services-flex .cards .card:hover {
     box-shadow: 1px 1px 3px 4px #b4974a;
+}
+
+@-webkit-keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1750px);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1750px);
+    }
+}
+
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    height: 100px;
+    margin: 3rem auto;
+    overflow: hidden;
+    position: relative;
+    width: 85%;
+    padding: 8px 0;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slider .slide-track {
+    -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: 3500px;
+}
+
+.slider .slide {
+    height: 100px;
+    width: 250px;
 }
 
 
@@ -425,7 +522,7 @@ nav .logo {
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
-    height: 400px;
+    height: 350px;
     background-color: rgb(2, 9, 25);
 }
 
@@ -444,7 +541,7 @@ nav .logo {
 }
 
 .footer-menu .low-menu {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 .footer-menu .legal .mid-list,
@@ -458,6 +555,19 @@ nav .logo {
 
 .footer-menu .legal .low-list {
     justify-content: space-between;
+}
+
+.footer-menu .legal .contact-info {
+    justify-content: space-evenly;
+}
+
+.footer-menu .legal .cities {
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.footer-menu .legal .cities li:first-child {
+    margin-right: 0.5rem;
 }
 
 .footer-menu .legal .social-networks {
@@ -485,6 +595,14 @@ nav .logo {
     color: #b4974a;
 }
 
+.footer-menu .legal ul .low-links:hover {
+    text-shadow: #b4974a 2px 5px;
+}
+
+.footer-menu .legal .cities li a:hover {
+    text-shadow: 1px 1px 2px #b4974a;
+}
+
 
 /* Footer */
 
@@ -497,6 +615,7 @@ footer {
     background-color: #000;
     color: #fff;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 
@@ -558,13 +677,35 @@ footer {
     .services-flex .cards .card {
         height: 26rem;
     }
+    /* Static Buttons */
+    .static-buttons {
+        top: 35rem;
+        right: 90%;
+    }
     /* Banner */
     /* Values */
     /* Clients */
     /* Contact Us */
-    .contact-us .form,
-    .map {
+    /* Footer Menu */
+    .footer-menu {
+        height: 450px;
+    }
+    .footer-menu .low-menu {
+        margin-bottom: 2.3rem;
+    }
+    .footer-menu .legal .low-list {
+        justify-content: center;
+        text-align: center;
+        line-height: 1.5;
+    }
+    .footer-menu .legal .low-list li {
+        display: block;
+    }
+    .footer-menu .legal .low-list li:last-child {
         width: 100%;
+    }
+    .footer-menu .social-networks .social {
+        width: 50%;
     }
 }
 
